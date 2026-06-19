@@ -15,9 +15,7 @@ const images = [
 export default function GalleryPage() {
   return (
     <main className="max-w-6xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-8">
-        Adi Naamen Gallery
-      </h1>
+      <h1 className="text-4xl font-bold mb-8">Adi Naamen Gallery</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {images.map((image) => (
@@ -27,7 +25,7 @@ export default function GalleryPage() {
             alt="Adi Naamen"
             width={600}
             height={400}
-            className="w-full h-72 object-cover rounded-xl"
+            className="w-full h-72 object-cover rounded-xl object-cover"
           />
         ))}
       </div>
