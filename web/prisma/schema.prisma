@@ -6,7 +6,6 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model User {
   id        Int      @id @default(autoincrement())
   name      String
@@ -21,7 +20,7 @@ model User {
 model Story {
   id        Int      @id @default(autoincrement())
   title     String
-  content   String   @db.Text
+  content   String
   createdAt DateTime @default(now())
 
   authorId  Int
@@ -31,7 +30,7 @@ model Story {
 model Event {
   id          Int      @id @default(autoincrement())
   title       String
-  description String?  @db.Text
+  description String?
   location    String
   eventDate   DateTime
 }
@@ -39,7 +38,7 @@ model Event {
 model Place {
   id          Int     @id @default(autoincrement())
   name        String
-  description String? @db.Text
+  description String?
   latitude    Float
   longitude   Float
 }
