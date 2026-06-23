@@ -5,7 +5,9 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const secret = process.env.JWT_SECRET;
-  if (!secret) return NextResponse.json({ error: "Innlogging er ikke konfigurert." }, { status: 503 });
+  if (!secret) {
+    return NextResponse.json({ error: "Innlogging er ikke konfigurert." }, { status: 503 });
+  }
 
   const { email, password } = await request.json();
   if (typeof email !== "string" || typeof password !== "string") {
@@ -13,26 +15,16 @@ export async function POST(request: Request) {
   }
 
   const user = await prisma.user.findUnique({
-    where: { email },
+    where: { email: email.trim().toLowerCase() },
   });
 
   if (!user) {
-    return NextResponse.json(
-      { error: "Ugyldig e-post eller passord." },
-      { status: 401 }
-    );
+    return NextResponse.json({ error: "Ugyldig e-post eller passord." }, { status: 401 });
   }
 
-  const validPassword = await bcrypt.compare(
-    password,
-    user.password
-  );
-
+  const validPassword = await bcrypt.compare(password, user.password);
   if (!validPassword) {
-    return NextResponse.json(
-      { error: "Ugyldig e-post eller passord." },
-      { status: 401 }
-    );
+    return NextResponse.json({ error: "Ugyldig e-post eller passord." }, { status: 401 });
   }
 
   const token = jwt.sign(
@@ -41,7 +33,7 @@ export async function POST(request: Request) {
       role: user.role,
     },
     secret,
-    { expiresIn: "7d" }
+    { expiresIn: "7d" },
   );
 
   const response = NextResponse.json({

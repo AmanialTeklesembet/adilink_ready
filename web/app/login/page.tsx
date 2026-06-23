@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, Suspense, useState } from "react";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [error, setError] = useState("");
@@ -42,5 +42,13 @@ export default function LoginPage() {
       </form>
       <p className="mt-6">Har du ikke konto? <Link className="underline" href="/register">Registrer deg</Link></p>
     </main>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<main className="mx-auto min-h-screen max-w-md px-6 py-16">Laster innlogging...</main>}>
+      <LoginForm />
+    </Suspense>
   );
 }
