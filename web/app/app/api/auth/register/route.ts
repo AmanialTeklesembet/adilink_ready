@@ -5,15 +5,11 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const { name, email, password } = await request.json();
 
-  if (typeof name !== "string" || typeof email !== "string" || typeof password !== "string") {
+  if (!name || !email || !password) {
     return NextResponse.json(
       { error: "Alle felter må fylles ut." },
       { status: 400 }
     );
-  }
-
-  if (name.trim().length < 2 || password.length < 8) {
-    return NextResponse.json({ error: "Navnet må ha minst 2 tegn og passordet minst 8." }, { status: 400 });
   }
 
   const existingUser = await prisma.user.findUnique({
@@ -31,8 +27,8 @@ export async function POST(request: Request) {
 
   await prisma.user.create({
     data: {
-      name: name.trim(),
-      email: email.trim().toLowerCase(),
+      name,
+      email,
       password: hashedPassword,
     },
   });

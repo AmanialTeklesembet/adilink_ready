@@ -4,13 +4,7 @@ import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  const secret = process.env.JWT_SECRET;
-  if (!secret) return NextResponse.json({ error: "Innlogging er ikke konfigurert." }, { status: 503 });
-
   const { email, password } = await request.json();
-  if (typeof email !== "string" || typeof password !== "string") {
-    return NextResponse.json({ error: "E-post og passord er påkrevd." }, { status: 400 });
-  }
 
   const user = await prisma.user.findUnique({
     where: { email },
@@ -40,7 +34,7 @@ export async function POST(request: Request) {
       id: user.id,
       role: user.role,
     },
-    secret,
+    process.env.JWT_SECRET!,
     { expiresIn: "7d" }
   );
 
@@ -55,7 +49,7 @@ export async function POST(request: Request) {
   response.cookies.set("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "strict",
     maxAge: 60 * 60 * 24 * 7,
     path: "/",
   });
