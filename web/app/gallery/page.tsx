@@ -14,21 +14,32 @@ const images = [
 
 export default function GalleryPage() {
   return (
-    <main className="max-w-6xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-8">Adi Naamen Gallery</h1>
+    <main className="bg-[#f8f2e8] text-slate-950">
+      <section className="bg-[#020b18] px-5 py-16 text-white lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-amber-300">Gallery</p>
+          <h1 className="mt-5 text-5xl font-black md:text-7xl">Adi Naamen in pictures.</h1>
+          <p className="mt-6 max-w-3xl text-xl text-slate-300">
+            A growing visual archive for people, landscapes, events and community memories.
+          </p>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((image) => (
-          <Image
-            key={image}
-            src={image}
-            alt="Adi Naamen"
-            width={600}
-            height={400}
-            className="w-full h-72 object-cover rounded-xl object-cover"
-          />
-        ))}
-      </div>
+      <section className="px-5 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {images.map((image, index) => (
+            <article key={image} className="overflow-hidden rounded-3xl bg-white shadow-xl">
+              <Image
+                src={image}
+                alt={`Adi Naamen gallery photo ${index + 1}`}
+                width={800}
+                height={600}
+                className="h-72 w-full object-cover transition duration-300 hover:scale-105"
+              />
+            </article>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

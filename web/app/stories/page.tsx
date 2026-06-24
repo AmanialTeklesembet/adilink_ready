@@ -6,7 +6,7 @@ const stories = [
     author: "Community Memory",
     image: "/images/stories/elders.jpg",
     content:
-      "Older residents often describe mornings in Adi Naamen as a time when neighbours gathered to share news, coffee and stories before starting the day.",
+      "Older residents describe mornings in Adi Naamen as a time when neighbours gathered to share news, coffee and stories before starting the day.",
   },
   {
     title: "Market Day Traditions",
@@ -19,37 +19,31 @@ const stories = [
 
 export default function StoriesPage() {
   return (
-    <main className="max-w-6xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-8">
-        Stories & Memories
-      </h1>
+    <main className="bg-[#f8f2e8] text-slate-950">
+      <section className="bg-[#020b18] px-5 py-16 text-white lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-amber-300">Stories</p>
+          <h1 className="mt-5 text-5xl font-black md:text-7xl">Stories worth preserving.</h1>
+          <p className="mt-6 max-w-3xl text-xl text-slate-300">
+            A first archive for memories, family history and community voices.
+          </p>
+        </div>
+      </section>
 
-      <div className="grid gap-8">
-        {stories.map((story) => (
-          <article
-            key={story.title}
-            className="rounded-xl border p-6 shadow-sm"
-          >
-            <Image
-              src={story.image}
-              alt={story.title}
-              width={1200}
-              height={700}
-              className="rounded-lg mb-4 w-full h-64 object-cover"
-            />
-
-            <h2 className="text-2xl font-semibold">
-              {story.title}
-            </h2>
-
-            <p className="text-gray-500 mb-3">
-              {story.author}
-            </p>
-
-            <p>{story.content}</p>
-          </article>
-        ))}
-      </div>
+      <section className="px-5 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-8">
+          {stories.map((story) => (
+            <article key={story.title} className="overflow-hidden rounded-3xl bg-white shadow-xl">
+              <Image src={story.image} alt={story.title} width={1200} height={700} className="h-80 w-full object-cover" />
+              <div className="p-8">
+                <p className="font-bold text-amber-700">{story.author}</p>
+                <h2 className="mt-2 text-3xl font-black">{story.title}</h2>
+                <p className="mt-4 text-lg leading-relaxed text-slate-700">{story.content}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
