@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { HashRedirect } from "./hash-redirect";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
+      <HashRedirect />
       <nav className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-4 border-b border-amber-400/30 bg-slate-950/95 px-6 py-4">
         <Link href="/" className="text-2xl font-bold text-amber-400">AdiLink</Link>
         <div className="flex flex-wrap items-center gap-5">
