@@ -62,36 +62,51 @@ export default function Home() {
         className="relative min-h-[calc(100vh-81px)] bg-cover bg-center"
         style={{ backgroundImage: "url('/images/places/village-view.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020b18] via-[#062039]/90 to-[#4d789c]/55" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_22%,rgba(240,184,63,0.18),transparent_24%),radial-gradient(circle_at_18%_78%,rgba(31,118,173,0.24),transparent_30%)]" />
-        <div className="absolute left-[-120px] top-28 h-72 w-72 rounded-full bg-amber-400/10 blur-3xl" />
-        <div className="absolute bottom-[-140px] right-[-80px] h-96 w-96 rounded-full bg-sky-400/10 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020b18] via-[#03172a]/90 to-[#0c4f76]/65" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(240,184,63,0.30),transparent_21%),radial-gradient(circle_at_15%_88%,rgba(32,147,208,0.32),transparent_28%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#020b18] to-transparent" />
+        <div className="absolute left-[-140px] top-20 h-80 w-80 rounded-full bg-amber-400/20 blur-3xl" />
+        <div className="absolute right-[-120px] top-32 h-96 w-96 rounded-full bg-sky-400/20 blur-3xl" />
 
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-81px)] max-w-7xl flex-col justify-center px-5 py-16 lg:px-8">
-          <div className="max-w-4xl">
-            <AdilinkLogo size="lg" />
+        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-81px)] max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-[1fr_0.92fr] lg:px-8">
+          <div>
+            <div className="inline-flex rounded-full border border-amber-400/50 bg-slate-950/55 px-4 py-2 text-sm font-black uppercase tracking-[0.24em] text-amber-200 shadow-2xl shadow-slate-950/40 backdrop-blur">
+              New AdiLink experience
+            </div>
+            <div className="mt-8">
+              <AdilinkLogo size="lg" />
+            </div>
+            <h1 className="mt-10 max-w-4xl text-6xl font-black leading-[0.92] tracking-tight md:text-8xl">
+              Heritage.
+              <span className="block text-amber-400">Community.</span>
+              Future.
+            </h1>
             <div className="my-8 flex items-center gap-4">
               <span className="h-px w-28 bg-amber-400" />
               <span className="h-4 w-4 rotate-45 border-2 border-amber-400" />
               <span className="h-px w-28 bg-amber-400" />
             </div>
-            <p className="max-w-2xl text-2xl font-black leading-relaxed md:text-3xl">
-              Connecting people from Adi Naamen worldwide.
+            <p className="max-w-2xl text-xl font-bold leading-relaxed text-slate-100 md:text-2xl">
+              A premium digital home for Adi Naamen people, stories, places, culture and trusted member connection.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-6">
-              <div className="flex items-center gap-3">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-amber-400/70 bg-slate-950/50 text-amber-300">♟</span>
-                <p><strong>Connect</strong><br />with people</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-amber-400/70 bg-slate-950/50 text-amber-300">▲</span>
-                <p><strong>Discover</strong><br />our culture</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-amber-400/70 bg-slate-950/50 text-amber-300">♥</span>
-                <p><strong>Build</strong><br />relationships</p>
-              </div>
+              {[
+                ["01", "Connect", "with people"],
+                ["02", "Discover", "our culture"],
+                ["03", "Build", "relationships"],
+              ].map(([number, title, text]) => (
+                <div key={title} className="flex items-center gap-3">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-amber-400/70 bg-slate-950/50 text-sm font-black text-amber-300">
+                    {number}
+                  </span>
+                  <p>
+                    <strong>{title}</strong>
+                    <br />
+                    {text}
+                  </p>
+                </div>
+              ))}
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -104,19 +119,64 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-12 grid overflow-hidden rounded-2xl border border-amber-400/50 bg-slate-950/70 shadow-2xl shadow-slate-950/40 backdrop-blur md:grid-cols-3">
-            <div className="flex items-center gap-5 border-b border-amber-400/30 p-6 md:border-b-0 md:border-r">
-              <span className="text-2xl font-black">NO</span>
-              <p>Forbinder mennesker fra Adi Naamen over hele verden.</p>
+          <div className="relative">
+            <div className="absolute -left-8 -top-8 h-28 w-28 rounded-full border border-amber-400/30" />
+            <div className="absolute -bottom-10 right-4 h-40 w-40 rounded-full bg-amber-400/10 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-amber-400/40 bg-slate-950/70 p-6 shadow-2xl shadow-slate-950/50 backdrop-blur-xl">
+              <div className="rounded-3xl bg-gradient-to-br from-amber-400 to-amber-600 p-1">
+                <div className="rounded-[1.35rem] bg-[#041629] p-6">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-sm font-black uppercase tracking-[0.25em] text-amber-200">Community Passport</p>
+                    <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-black text-slate-950">VIP READY</span>
+                  </div>
+                  <div className="mt-8 grid gap-4">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <p className="text-5xl font-black text-white">32+</p>
+                      <p className="mt-1 text-slate-300">countries connected</p>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p className="text-3xl font-black text-amber-300">1.2k</p>
+                        <p className="text-sm text-slate-300">photos</p>
+                      </div>
+                      <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <p className="text-3xl font-black text-amber-300">8.7k</p>
+                        <p className="text-sm text-slate-300">messages</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-8 rounded-2xl bg-[#082a3f] p-5">
+                    <div className="relative h-44 overflow-hidden rounded-xl bg-gradient-to-br from-[#174f50] to-[#04263d]">
+                      <span className="absolute left-[18%] top-[22%] h-3 w-3 rounded-full bg-amber-400 shadow-[0_0_30px_rgba(240,184,63,.9)]" />
+                      <span className="absolute left-[56%] top-[58%] h-4 w-4 rounded-full bg-amber-400 shadow-[0_0_30px_rgba(240,184,63,.9)]" />
+                      <span className="absolute right-[22%] top-[35%] h-3 w-3 rounded-full bg-amber-400 shadow-[0_0_30px_rgba(240,184,63,.9)]" />
+                      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+                        {["Norway", "Eritrea", "Sweden", "USA"].map((place) => (
+                          <span key={place} className="rounded-full border border-amber-400/50 bg-slate-950/50 px-3 py-1 text-xs font-bold">
+                            {place}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-5 border-b border-amber-400/30 p-6 md:border-b-0 md:border-r">
-              <span className="text-2xl font-black">ER</span>
-              <p>{"\u12D3\u12F2 \u1293\u12D5\u1218\u1295"} - connecting heritage, family and future.</p>
-            </div>
-            <div className="flex items-center gap-5 p-6">
-              <span className="text-2xl font-black">GB</span>
-              <p>Connecting people from Adi Naamen worldwide.</p>
-            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 mx-auto grid max-w-7xl overflow-hidden rounded-2xl border border-amber-400/50 bg-slate-950/70 shadow-2xl shadow-slate-950/40 backdrop-blur md:grid-cols-3">
+          <div className="flex items-center gap-5 border-b border-amber-400/30 p-6 md:border-b-0 md:border-r">
+            <span className="text-2xl font-black">NO</span>
+            <p>Forbinder mennesker fra Adi Naamen over hele verden.</p>
+          </div>
+          <div className="flex items-center gap-5 border-b border-amber-400/30 p-6 md:border-b-0 md:border-r">
+            <span className="text-2xl font-black">ER</span>
+            <p>{"\u12D3\u12F2 \u1293\u12D5\u1218\u1295"} - connecting heritage, family and future.</p>
+          </div>
+          <div className="flex items-center gap-5 p-6">
+            <span className="text-2xl font-black">GB</span>
+            <p>Connecting people from Adi Naamen worldwide.</p>
           </div>
         </div>
       </section>
@@ -136,7 +196,7 @@ export default function Home() {
               <div className="p-6 pt-10">
                 <h2 className="text-2xl font-black group-hover:text-amber-700">{card.title}</h2>
                 <p className="mt-4 leading-relaxed text-slate-700">{card.text}</p>
-                <p className="mt-6 font-black text-amber-700">{card.action} →</p>
+                <p className="mt-6 font-black text-amber-700">{card.action} -&gt;</p>
               </div>
             </Link>
           ))}
@@ -167,7 +227,7 @@ export default function Home() {
               <div key={image} className="h-28 rounded-xl bg-cover bg-center shadow-lg" style={{ backgroundImage: `linear-gradient(rgba(2,11,24,.1),rgba(2,11,24,.45)),url('${image}')` }} />
             ))}
           </div>
-          <Link href="/gallery" className="mt-6 inline-flex font-black text-amber-300">View Gallery →</Link>
+          <Link href="/gallery" className="mt-6 inline-flex font-black text-amber-300">View Gallery -&gt;</Link>
         </div>
 
         <div className="p-10 lg:p-16">
