@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdilinkLogo } from "./adilink-logo";
 
 const quickLinks = [
   { href: "/about", label: "About" },
@@ -10,11 +11,11 @@ const quickLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-amber-400/20 bg-[#020b18] px-5 py-12 text-white lg:px-8">
+    <footer className="border-t border-amber-400/20 bg-[#020b18] px-5 py-14 text-white lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="text-3xl font-black text-amber-400">AdiLink</p>
-          <p className="mt-4 max-w-md text-slate-300">
+          <AdilinkLogo size="sm" />
+          <p className="mt-5 max-w-md text-slate-300">
             A trusted digital home for Adi Naamen history, culture, members, places and shared memories.
           </p>
         </div>
@@ -31,7 +32,7 @@ export function SiteFooter() {
         <div>
           <h2 className="font-bold text-amber-300">Community</h2>
           <p className="mt-4 text-slate-300">Built for members in Norway, Eritrea and across the world.</p>
-          <Link href="/vip" className="mt-5 inline-flex rounded-lg border border-amber-400 px-5 py-3 font-bold hover:bg-amber-400 hover:text-slate-950">
+          <Link href="/vip" className="mt-5 inline-flex rounded-xl border border-amber-400 px-5 py-3 font-bold hover:bg-amber-400 hover:text-slate-950">
             Enter VIP
           </Link>
         </div>
