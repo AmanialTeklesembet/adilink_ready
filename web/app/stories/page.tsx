@@ -1,21 +1,5 @@
 import Image from "next/image";
-
-const stories = [
-  {
-    title: "Morning Gatherings",
-    author: "Community Memory",
-    image: "/images/stories/elders.jpg",
-    content:
-      "Older residents describe mornings in Adi Naamen as a time when neighbours gathered to share news, coffee and stories before starting the day.",
-  },
-  {
-    title: "Market Day Traditions",
-    author: "Local Voices",
-    image: "/images/stories/market.jpg",
-    content:
-      "Weekly market days brought together families from nearby villages, creating opportunities to exchange goods, ideas and traditions.",
-  },
-];
+import { stories } from "../data/mock";
 
 export default function StoriesPage() {
   return (
@@ -25,20 +9,24 @@ export default function StoriesPage() {
           <p className="text-sm font-black uppercase tracking-[0.3em] text-amber-300">Stories</p>
           <h1 className="mt-5 text-5xl font-black md:text-7xl">Stories worth preserving.</h1>
           <p className="mt-6 max-w-3xl text-xl text-slate-300">
-            A first archive for memories, family history and community voices.
+            A premium story archive preview with categories, authors and reading time.
           </p>
         </div>
       </section>
 
       <section className="px-5 py-16 lg:px-8">
-        <div className="mx-auto grid max-w-6xl gap-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
           {stories.map((story) => (
             <article key={story.title} className="overflow-hidden rounded-3xl bg-white shadow-xl">
-              <Image src={story.image} alt={story.title} width={1200} height={700} className="h-80 w-full object-cover" />
+              <Image src={story.image} alt={story.title} width={1200} height={700} className="h-72 w-full object-cover" />
               <div className="p-8">
-                <p className="font-bold text-amber-700">{story.author}</p>
+                <div className="flex items-center justify-between gap-4">
+                  <p className="rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-800">{story.category}</p>
+                  <p className="text-sm font-bold text-slate-500">{story.readTime}</p>
+                </div>
+                <p className="mt-5 font-bold text-amber-700">{story.author}</p>
                 <h2 className="mt-2 text-3xl font-black">{story.title}</h2>
-                <p className="mt-4 text-lg leading-relaxed text-slate-700">{story.content}</p>
+                <p className="mt-4 leading-relaxed text-slate-700">{story.content}</p>
               </div>
             </article>
           ))}

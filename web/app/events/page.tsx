@@ -1,23 +1,4 @@
-const events = [
-  {
-    title: "Community Heritage Day",
-    date: "15 August 2026",
-    location: "Central gathering area",
-    description: "A day for stories, photos, family memory and community connection.",
-  },
-  {
-    title: "Traditional Music Evening",
-    date: "10 September 2026",
-    location: "Community hall",
-    description: "An evening for music, language, food and cultural celebration.",
-  },
-  {
-    title: "Global Online Gathering",
-    date: "21 October 2026",
-    location: "Online",
-    description: "A digital gathering for members across Norway, Eritrea and the diaspora.",
-  },
-];
+import { events } from "../data/mock";
 
 export default function EventsPage() {
   return (
@@ -27,7 +8,7 @@ export default function EventsPage() {
           <p className="text-sm font-black uppercase tracking-[0.3em] text-amber-300">Events</p>
           <h1 className="mt-5 text-5xl font-black md:text-7xl">Upcoming community moments.</h1>
           <p className="mt-6 max-w-3xl text-xl text-slate-300">
-            Events will become a central place for participation, announcements and local gatherings.
+            False event data for now, designed like the real RSVP and participation hub.
           </p>
         </div>
       </section>
@@ -35,7 +16,7 @@ export default function EventsPage() {
       <section className="px-5 py-16 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-5">
           {events.map((event) => (
-            <article key={event.title} className="grid gap-5 rounded-3xl bg-white p-7 shadow-xl md:grid-cols-[180px_1fr]">
+            <article key={event.title} className="grid gap-5 rounded-3xl bg-white p-7 shadow-xl md:grid-cols-[210px_1fr_180px]">
               <div className="rounded-2xl bg-[#020b18] p-5 text-center text-white">
                 <p className="text-sm font-bold text-amber-300">{event.location}</p>
                 <p className="mt-3 text-2xl font-black">{event.date}</p>
@@ -43,6 +24,10 @@ export default function EventsPage() {
               <div>
                 <h2 className="text-3xl font-black">{event.title}</h2>
                 <p className="mt-3 text-lg text-slate-700">{event.description}</p>
+              </div>
+              <div className="flex flex-col justify-center">
+                <p className="rounded-full bg-amber-100 px-4 py-2 text-center font-black text-amber-800">{event.guests}</p>
+                <button className="mt-4 rounded-xl bg-amber-400 px-5 py-3 font-black text-slate-950">RSVP demo</button>
               </div>
             </article>
           ))}

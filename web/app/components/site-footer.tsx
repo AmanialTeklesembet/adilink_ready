@@ -7,6 +7,7 @@ const quickLinks = [
   { href: "/stories", label: "Stories" },
   { href: "/events", label: "Events" },
   { href: "/places", label: "Places" },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 export function SiteFooter() {
@@ -38,7 +39,7 @@ export function SiteFooter() {
         </div>
       </div>
       <p className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-sm text-slate-400">
-        © 2026 AdiLink. Connecting Adi Naamen worldwide.
+        {"\u00A9"} 2026 AdiLink. Connecting Adi Naamen worldwide.
       </p>
     </footer>
   );
