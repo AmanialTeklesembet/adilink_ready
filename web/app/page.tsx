@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AdilinkLogo } from "./components/adilink-logo";
+import { members, stories } from "./data/mock";
 import { HashRedirect } from "./hash-redirect";
 
 const featureCards = [
@@ -200,6 +201,49 @@ export default function Home() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-[#020b18] px-5 py-20 text-white lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.3em] text-amber-300">Live demo network</p>
+            <h2 className="mt-4 text-5xl font-black leading-tight">A community that already feels alive.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate-300">
+              These are demo members and stories for now, but the layout is built like a real community feed:
+              people, roles, locations, culture, events and shared memories.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {members.slice(0, 4).map((member) => (
+                <Link key={member.name} href="/community" className="rounded-3xl border border-amber-400/20 bg-white/5 p-5 transition hover:-translate-y-1 hover:bg-white/10">
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-amber-400 font-black text-slate-950">{member.initials}</span>
+                    <div>
+                      <p className="font-black">{member.name}</p>
+                      <p className="text-sm text-slate-300">{member.location}</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm font-bold text-amber-300">{member.role}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-5">
+            {stories.map((story) => (
+              <Link key={story.title} href="/stories" className="grid gap-5 overflow-hidden rounded-3xl border border-amber-400/20 bg-white/5 p-4 transition hover:-translate-y-1 hover:bg-white/10 md:grid-cols-[180px_1fr]">
+                <div className="min-h-40 rounded-2xl bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(2,11,24,.1),rgba(2,11,24,.55)),url('${story.image}')` }} />
+                <div className="p-2">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-black text-slate-950">{story.category}</span>
+                    <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-slate-300">{story.readTime}</span>
+                  </div>
+                  <h3 className="mt-4 text-2xl font-black">{story.title}</h3>
+                  <p className="mt-2 text-slate-300">{story.content}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
